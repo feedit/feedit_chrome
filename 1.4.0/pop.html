@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8" />
+	<head>
+	<style>
+	.button{
+		display: inline-block;
+		width:150px;
+		height:60px;
+		font-size: 28px;
+		font-family: "Microsoft YaHei",Verdana,sans-serif;
+		background-color: #45280c;
+		color:#ede7e1;
+	}
+	input{
+       border-radius:6px;
+       border:1px solid #c4711d;
+       -webkit-transition: box-shadow 0.10s ease-in-out;
+       -moz-transition:  box-shadow 0.10s ease-in-out; 
+    }
+	</style>
+	</head>
+	<body>
+	<div class="content">
+		<input type="button" value="收 藏" id="button" class="button">
+	</div>	
+	<script>
+		function click() {
+			chrome.tabs.executeScript(null, {
+				code: "var get_title = encodeURI(document.title),get_url = location.href;if (get_title && get_url) {	function PostData() {var requestURL = 'http://www.xdf.me/reader/submit/ajax_submit.php?' + 'canshu1=' + get_title + '&canshu2=' + get_url;var objHead = document.getElementsByTagName('head'),objScript = document.createElement('script');objScript.type = 'text/javascript';objScript.src = requestURL;objHead[0].appendChild(objScript);}function callback_xudafeng(canshu1, canshu2) {}PostData();} "
+			});
+			//window.close();
+
+		}
+		var get_button = document.getElementById('button');
+		get_button.addEventListener('click', click);
+	</script>
+</html>
