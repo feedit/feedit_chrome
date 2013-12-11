@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "reader",
     "description": "reader for xdf",
-    "version": "1.4",
+    "version": "1.5",
     "icons": {
         "128": "reader-128.png",
         "48": "reader-48.png"
