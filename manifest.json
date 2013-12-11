@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "feedit",
+  "description": "chrome extension for feedit",
+  "version": "2.0",
+  "icons": {
+    "128": "reader-128.png",
+    "48": "reader-48.png"
+  },
+  "background": {
+    "scripts": ["scripts/background.js"]
+  },
+  "content_scripts": [{
+    "js": ["scripts/content.js"],
+    "matches": ["http://*/*", "https://*/*"],
+    "run_at": "document_start"
+  }],
+  "permissions": [
+    "background",
+    "notifications",
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+    ],
+  "browser_action": {
+    "default_icon": "reader-48.png",
+    "default_popup": "popup.html"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "update_url": "http://clients2.google.com/service/update2/crx"
+}
