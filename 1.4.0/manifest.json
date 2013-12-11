@@ -1,16 +1,21 @@
-{       
-    "browser_action": {
-        "default_icon": "xdf.ico",
-        "default_popup": "pop.html",
-        "tooltip": "title"
-    },
-    "description": "xdf's Blog Reader",
+{
+    "manifest_version": 2,
+    "name": "reader",
+    "description": "reader for xdf",
+    "version": "1.4",
     "icons": {
         "128": "reader-128.png",
         "48": "reader-48.png"
     },
-    "manifest_version": 2,
-    "name": "Reader for xdf",
+    "content_scripts": [{
+        "js": ["scripts/content.js"],
+        "matches": ["*://*/*.js", "*://*/*.js?*", "*://*/*.json", "*://*/*.json?*", "*://*/*.pbxproj", "*://*/*.pbxproj?*"],
+        "run_at": "document_end"
+    }],
     "permissions": [ "tabs", "http://*/*", "https://*/*" ],
-    "version": "1.4"
+    "browser_action": {
+        "default_icon": "reader-48.png",
+        "default_popup": "popup.html"
+    },
+    "update_url": "http://clients2.google.com/service/update2/crx"
 }
