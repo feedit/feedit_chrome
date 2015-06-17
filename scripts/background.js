@@ -5,6 +5,7 @@
       var api = 'http://xdf.me/feedit/api?type=add&title=';
       api += data.title;
       api += '&url=' + data.url;
+      console.log(api)
       var xmlHttp = new XMLHttpRequest();
       xmlHttp.open('GET', api, true);
       xmlHttp.onreadystatechange = function(d) {
@@ -18,9 +19,11 @@
         chrome.tabs.sendRequest(tab.id, {
           type: 'data'
         }, function(response) {
-          sendResponse('end');
         });
       });
+      setTimeout(function() {
+        sendResponse('end');
+      }, 200);
     }
   });
 })(this);

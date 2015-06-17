@@ -4,8 +4,8 @@
       chrome.extension.sendRequest({
         type: 'setdata',
         data: {
-          url: encodeURI(location.href),
-          title: encodeURI(document.title)
+          url: encodeURIComponent(location.href),
+          title: encodeURIComponent(document.title)
         }
       }, function(response) {
         sendResponse('end');
